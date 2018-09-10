@@ -11,7 +11,6 @@
 		85F5295A2146C9530045262B /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F529592146C9530045262B /* ViewController.m */; };
 		85F5295D2146C9530045262B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85F5295B2146C9530045262B /* Main.storyboard */; };
 		85F5295F2146C9710045262B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 85F5295E2146C9710045262B /* Assets.xcassets */; };
-		85F529622146C9710045262B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 85F529602146C9710045262B /* LaunchScreen.storyboard */; };
 		85F529652146C9710045262B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F529642146C9710045262B /* main.m */; };
 		85F5296F2146C9720045262B /* CameraTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F5296E2146C9720045262B /* CameraTests.m */; };
 		85F5297A2146C9720045262B /* CameraUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 85F529792146C9720045262B /* CameraUITests.m */; };
@@ -42,7 +41,6 @@
 		85F529592146C9530045262B /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		85F5295C2146C9530045262B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		85F5295E2146C9710045262B /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		85F529612146C9710045262B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		85F529632146C9710045262B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		85F529642146C9710045262B /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		85F5296A2146C9720045262B /* CameraTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CameraTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -107,7 +105,6 @@
 				85F529592146C9530045262B /* ViewController.m */,
 				85F5295B2146C9530045262B /* Main.storyboard */,
 				85F5295E2146C9710045262B /* Assets.xcassets */,
-				85F529602146C9710045262B /* LaunchScreen.storyboard */,
 				85F529632146C9710045262B /* Info.plist */,
 				85F529642146C9710045262B /* main.m */,
 			);
@@ -235,7 +232,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				85F529622146C9710045262B /* LaunchScreen.storyboard in Resources */,
 				85F5295F2146C9710045262B /* Assets.xcassets in Resources */,
 				85F5295D2146C9530045262B /* Main.storyboard in Resources */,
 			);
@@ -306,14 +302,6 @@
 				85F5295C2146C9530045262B /* Base */,
 			);
 			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		85F529602146C9710045262B /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				85F529612146C9710045262B /* Base */,
-			);
-			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
