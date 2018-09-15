@@ -80,15 +80,69 @@
     }
 }
 
+- (UIImage *)shrinkImage:(UIImage *)original toSize:(CGSize)size
+{
+    UIGraphicsBeginImageContextWithOptions(size, YES, 0);
+    
+    CGFloat originalAspect = original.size.width / original.size.height;
+    CGFloat targetAspect = size.width / size.height;
+    CGRect targetRect;
+    
+    if (originalAspect > targetAspect)
+    {
+        targetRect.size.width = size.width;
+        targetRect.size.height = size.height * targetAspect / originalAspect;
+        targetRect.origin.x = 0;
+        targetRect.origin.y = (size.height - targetRect.size.height) * 0.5;
+    }
+    else if (originalAspect < targetAspect)
+    {
+        targetRect.size.width = size.width * originalAspect / targetAspect;
+        targetRect.size.height = size.height;
+        targetRect.origin.x = (size.width - targetRect.size.width) * 0.5;
+        targetRect.origin.y = 0;
+    }
+    else
+    {
+        targetRect = CGRectMake(0, 0, size.width, size.height);
+    }
+    
+    [original drawInRect:targetRect];
+    UIImage *final = UIGraphicsGetImageFromCurrentImageContext();
+    UIGraphicsEndImageContext();
+    
+    return final;
+}
+
 - (IBAction)shootPictureOrVideo:(id)sender
 {
-    
+    [self pickMediaFromSource:UIImagePickerControllerSourceTypeCamera];
 }
 
 - (IBAction)selectExistingPictureOrVideo:(id)sender
 {
-    
+    [self pickMediaFromSource:UIImagePickerControllerSourceTypePhotoLibrary];
 }
 
+#pragma mark Image Picker Controller delegate methods
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    self.lastChosenMediaType = info[UIImagePickerControllerMediaType];
+    if ([self.lastChosenMediaType isEqual:(NSString *)kUTTypeImage])
+    {
+        UIImage *chosenImage = info[UIImagePickerControllerEditedImage];
+        self.image = [self shrinkImage:chosenImage toSize:self.imageView.bounds.size];
+    } else if ([self.lastChosenMediaType isEqual:(NSString *)kUTTypeMovie])
+    {
+        self.movieURL = info[UIImagePickerControllerMediaURL];
+    }
+    [picker dismissViewControllerAnimated:YES  completion:NULL];
+}
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:NULL];
+}
 
 @end
